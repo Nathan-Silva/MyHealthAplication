@@ -16,7 +16,6 @@ public class LembreteAdapter extends BaseAdapter {
 
     Context context;
     ArrayList<Lembretes> lembretes;
-    LayoutInflater inflater;
 
     public LembreteAdapter(Context context, ArrayList<Lembretes> lembretes) {
         this.context = context;
@@ -40,7 +39,7 @@ public class LembreteAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = inflater.inflate(R.layout.lembrete_item, parent, false);
+        convertView = LayoutInflater.from(this.context).inflate(R.layout.lembrete_item, parent, false);
 
         TextView titulo = convertView.findViewById(R.id.txtTituloLista);
         TextView conteudo = convertView.findViewById(R.id.txtConteudoLista);

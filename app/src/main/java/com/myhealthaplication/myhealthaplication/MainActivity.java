@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
     public FloatingActionButton btnAdd;
     ListView lvLista;
     ArrayList<Lembretes> lsLembrete = new ArrayList<>();
+    String titulo;
+    String conteudo;
+    String txtData;
+    String hora;
     private FloatingActionButton btnCall;
     private int REQUEST_CODE = 1;
 
@@ -28,34 +32,52 @@ public class MainActivity extends AppCompatActivity {
         this.btnCall = findViewById(R.id.btnCall);
         this.btnAdd = findViewById(R.id.btnAdd);
         this.lvLista = findViewById(R.id.lvLista);
-        LembreteAdapter la = new LembreteAdapter(this, lsLembrete);
-        this.lvLista.setAdapter(la);
-    }
 
 
-    public void adicionarLembrete(View view) {
-        Intent it = new Intent(this, NovoLembreteActivity.class);
-        startActivityForResult(it, REQUEST_CODE);
 
-    }
 
-    public void telaChamada(View view) {
-        Intent it = new Intent(this, CallActivity.class);
-        startActivity(it);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) {
+        System.out.println("Dados Recebidos!!!");
+        if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                String titulo = data.getStringExtra("titulo");
-                String conteudo = data.getStringExtra("conteudo");
-                String txtData = data.getStringExtra("data");
-                String hora = data.getStringExtra("hora");
-                Lembretes lm = new Lembretes(titulo, conteudo, txtData, hora);
-                lsLembrete.add(lm);
+                this.titulo = data.getStringExtra("titulo");
+                this.conteudo = data.getStringExtra("conteudo");
+                this.txtData = data.getStringExtra("data");
+                this.hora = data.getStringExtra("hora");
+                System.out.println(titulo);
+                Lembretes lm = new Lembretes(this.titulo, this.conteudo, this.txtData, this.hora);
+                this.lsLembrete.add(lm);
+                System.out.println("Lembrete dentro da lista lembrete");
+                LembreteAdapter la = new LembreteAdapter(this, this.lsLembrete);
+                this.lvLista.setAdapter(la);
             }
         }
+    }
+
+
+
+
+
+
+
+    public void adicionarLembrete(View view) {
+        Intent it = new Intent(this, NovoLembreteActivity.class);
+        startActivity(it);
+        startActivityForResult(it, REQUEST_CODE);
+
+    }
+
+    public void telaChamada(View view) {
+        //Intent it = new Intent(this, CallActivity.class);
+        //startActivity(it);
+
+        Intent it = getIntent();
+        this.titulo = it.getStringExtra("titulo");
+        System.out.println(this.titulo);
     }
 }

@@ -29,8 +29,6 @@ public class NovoLembreteActivity extends AppCompatActivity {
         this.txtConteudo = findViewById(R.id.txtConteudo);
         this.txtData = findViewById(R.id.txtData);
         this.txtHora = findViewById(R.id.txtHora);
-
-
     }
 
 
@@ -41,12 +39,15 @@ public class NovoLembreteActivity extends AppCompatActivity {
         String hora = this.txtHora.getText().toString();
 
         lembrete = new Lembretes(titulo, conteudo, data, hora);
-        new LembreteBancoController(this).add(lembrete);
+        boolean cond = new LembreteBancoController(this).add(lembrete);
+        //System.out.println(cond);
         Intent it = new Intent(this, MainActivity.class);
         it.putExtra("titulo", titulo);
         it.putExtra("conteudo", conteudo);
         it.putExtra("data", data);
         it.putExtra("hora", hora);
+        System.out.println("Pegou todos os dados e enviou a proxima activity");
         setResult(RESULT_OK, it);
+        finish();
     }
 }

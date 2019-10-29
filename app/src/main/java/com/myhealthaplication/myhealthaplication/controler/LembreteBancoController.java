@@ -27,7 +27,7 @@ public class LembreteBancoController {
         valores.put(LembreteHelper.DATA, lembretes.getData());
         valores.put(LembreteHelper.HORA, lembretes.getHora());
 
-        resultado = db.insert(LembreteHelper.BANCO, null, valores);
+        resultado = db.insert(LembreteHelper.TABELA, null, valores);
         db.close();
 
         return resultado != -1;
@@ -39,7 +39,7 @@ public class LembreteBancoController {
         String[] campos = {
                 LembreteHelper.ID, LembreteHelper.TITULO, LembreteHelper.CONTEUDO, LembreteHelper.DATA, LembreteHelper.HORA
         };
-        cursor = db.query(LembreteHelper.TABELA, campos, null, null, null, null, null, null);
+        cursor = this.db.query(LembreteHelper.TABELA, campos, null, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
@@ -53,12 +53,12 @@ public class LembreteBancoController {
                 LembreteHelper.ID, LembreteHelper.TITULO, LembreteHelper.CONTEUDO, LembreteHelper.DATA, LembreteHelper.HORA
         };
         String where = LembreteHelper.ID + "=" + id;
-        db = lembreteHelper.getReadableDatabase();
-        cursor = db.query(LembreteHelper.ID, campos, where, null, null, null, null, null);
+        this.db = lembreteHelper.getReadableDatabase();
+        cursor = this.db.query(LembreteHelper.ID, campos, where, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
-        db.close();
+        this.db.close();
         return cursor;
     }
 
@@ -66,7 +66,7 @@ public class LembreteBancoController {
         ContentValues valores;
         String where;
 
-        db = lembreteHelper.getWritableDatabase();
+        this.db = lembreteHelper.getWritableDatabase();
 
         where = LembreteHelper.ID + "=" + lembretes.getId();
 
@@ -76,14 +76,14 @@ public class LembreteBancoController {
         valores.put(LembreteHelper.DATA, lembretes.getData());
         valores.put(LembreteHelper.HORA, lembretes.getHora());
 
-        db.update(LembreteHelper.TABELA, valores, where, null);
-        db.close();
+        this.db.update(LembreteHelper.TABELA, valores, where, null);
+        this.db.close();
     }
 
     public void remove(Integer id) {
         String where = LembreteHelper.ID + "=" + id;
-        db = lembreteHelper.getReadableDatabase();
-        db.delete(LembreteHelper.TABELA, where, null);
-        db.close();
+        this.db = lembreteHelper.getReadableDatabase();
+        this.db.delete(LembreteHelper.TABELA, where, null);
+        this.db.close();
     }
 }

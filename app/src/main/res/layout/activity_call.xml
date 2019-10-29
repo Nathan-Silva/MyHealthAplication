@@ -27,30 +27,36 @@
 
 
         <Button
+            android:id="@+id/btnAmbulancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_ambulancia"
+            android:onClick="ligarAmbulancia"
             android:text="@string/strAmbulancia"
             android:textColor="@color/corVermelha"
-            android:textSize="30dp"/>
+            android:textSize="30dp" />
 
         <Button
+            android:id="@+id/btnPolicia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/button_policia"
             android:text="@string/strPolicia"
             android:textColor="@color/corBranco"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:onClick="ligarPolicia"/>
 
         <Button
+            android:id="@+id/btnBombeiros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/button_bombeiro"
             android:text="@string/strBombeiros"
             android:textColor="@color/corBranco"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:onClick="ligarBombeiros"/>
 
         <Button
             android:layout_width="match_parent"

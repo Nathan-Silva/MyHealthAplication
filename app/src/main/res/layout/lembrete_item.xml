@@ -19,27 +19,32 @@
                 android:layout_height="wrap_content"
                 android:hint="Titulo"
                 android:textAlignment="center"
-                android:textSize="20dp" />
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/txtConteudoLista"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Descrição" />
+                android:hint="Descrição"
+                android:textSize="15dp"
+                />
 
             <TextView
                 android:id="@+id/txtData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Titulo"
+                android:hint="Data"
                 android:textAlignment="center"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:layout_marginLeft="350dp"/>
 
             <TextView
                 android:id="@+id/txtHora"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Descrição" />
+                android:hint="Hora"
+                android:textSize="20dp"
+                android:layout_marginLeft="350dp"/>
 
         </LinearLayout>
 
