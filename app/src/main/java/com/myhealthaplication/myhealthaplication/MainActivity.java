@@ -2,6 +2,7 @@ package com.myhealthaplication.myhealthaplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.ListView;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     String hora;
     private FloatingActionButton btnCall;
     private int REQUEST_CODE = 1;
+    ContextMenu contextMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +34,16 @@ public class MainActivity extends AppCompatActivity {
         this.btnCall = findViewById(R.id.btnCall);
         this.btnAdd = findViewById(R.id.btnAdd);
         this.lvLista = findViewById(R.id.lvLista);
+        registerForContextMenu(lvLista);
 
+       // lvLista.setOnItemClickListener(new OnLongClickListener() {
+           // @Override
+         //   public boolean onLongClick(View v) {
 
-
-
+                
+         //       return true;
+         //   }
+       // });
 
     }
 
@@ -73,11 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void telaChamada(View view) {
-        //Intent it = new Intent(this, CallActivity.class);
-        //startActivity(it);
-
-        Intent it = getIntent();
-        this.titulo = it.getStringExtra("titulo");
-        System.out.println(this.titulo);
+        Intent it = new Intent(this, CallActivity.class);
+        startActivity(it);
     }
 }

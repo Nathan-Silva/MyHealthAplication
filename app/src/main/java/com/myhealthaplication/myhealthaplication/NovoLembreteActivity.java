@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myhealthaplication.myhealthaplication.controler.LembreteBancoController;
@@ -29,6 +30,14 @@ public class NovoLembreteActivity extends AppCompatActivity {
         this.txtConteudo = findViewById(R.id.txtConteudo);
         this.txtData = findViewById(R.id.txtData);
         this.txtHora = findViewById(R.id.txtHora);
+
+        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                    String data = dayOfMonth + "/" + month + "/" + year;
+                    txtData.setText(data);
+            }
+        });
     }
 
 

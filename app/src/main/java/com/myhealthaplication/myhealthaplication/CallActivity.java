@@ -26,7 +26,7 @@ public class CallActivity extends AppCompatActivity {
     }
 
     public void ligarAmbulancia(View view) {
-        String numAmbulancia = "180";
+        String numAmbulancia = "192";
         Intent it = new Intent(Intent.ACTION_CALL);
         it.setData(Uri.parse("tel:" + numAmbulancia));
         if (it.resolveActivity(getPackageManager()) != null) {
