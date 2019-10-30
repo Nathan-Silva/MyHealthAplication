@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.myhealthaplication.myhealthaplication.adapter.LembreteAdapter;
+import com.myhealthaplication.myhealthaplication.controler.LembreteBancoController;
 import com.myhealthaplication.myhealthaplication.entidades.Lembretes;
 
 import java.util.ArrayList;
@@ -23,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
     String conteudo;
     String txtData;
     String hora;
+    ContextMenu contextMenu;
+    Lembretes lembretes;
     private FloatingActionButton btnCall;
     private int REQUEST_CODE = 1;
-    ContextMenu contextMenu;
+    LembreteAdapter lembreteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +39,9 @@ public class MainActivity extends AppCompatActivity {
         this.lvLista = findViewById(R.id.lvLista);
         registerForContextMenu(lvLista);
 
-       // lvLista.setOnItemClickListener(new OnLongClickListener() {
-           // @Override
-         //   public boolean onLongClick(View v) {
-
-                
-         //       return true;
-         //   }
-       // });
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -63,14 +59,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("Lembrete dentro da lista lembrete");
                 LembreteAdapter la = new LembreteAdapter(this, this.lsLembrete);
                 this.lvLista.setAdapter(la);
+                System.out.println(lsLembrete.get(0).getHora());
             }
         }
     }
-
-
-
-
-
 
 
     public void adicionarLembrete(View view) {
@@ -83,5 +75,10 @@ public class MainActivity extends AppCompatActivity {
     public void telaChamada(View view) {
         Intent it = new Intent(this, CallActivity.class);
         startActivity(it);
+    }
+
+    public void excluirLembrete(View view, Integer id){
+        new LembreteBancoController(this).remove((Integer) lvLista.getSelectedItem());
+        lembreteAdapter.notifyDataSetChanged();
     }
 }

@@ -3,4 +3,10 @@
     <string name="strAmbulancia">Ambulância</string>
     <string name="strPolicia">Polícia</string>
     <string name="strBombeiros">Bombeiros</string>
+    <string name="strTitulo">Título:</string>
+    <string name="strConteudo">Conteudo:</string>
+    <string name="strData">Data:</string>
+    <string name="strHora">Hora:</string>
+    <string name="btnAdicionar">Adicionar</string>
+    <string name="callActivity">SELECIONE A EMERGÊNCIA ABAIXO:</string>
 </resources>

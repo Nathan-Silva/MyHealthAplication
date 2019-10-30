@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Título:"
+            android:text="@string/strTitulo"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"/>
 
@@ -39,10 +39,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Conteúdo:"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"/>
+            android:text="@string/strConteudo"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/txtConteudo"
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:text="Data:"
+            android:text="@string/strData"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"/>
 
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hora:"
+            android:text="@string/strHora"
             android:textSize="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"/>
@@ -95,7 +95,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar"
+        android:text="@string/btnAdicionar"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="150dp"
         android:onClick="cadastrarLembrete"/>

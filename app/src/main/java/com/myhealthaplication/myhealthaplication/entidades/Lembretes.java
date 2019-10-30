@@ -24,6 +24,10 @@ public class Lembretes {
         this.hora = hora;
     }
 
+    public Lembretes(){
+
+    }
+
     public String getConteudo() {
         return conteudo;
     }

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="SELECIONE A EMERGÊNCIA ABAIXO:"
+        android:text="@string/callActivity"
         android:textAlignment="center"
         android:textSize="30dp"
         android:textColor="@color/corPreto"/>
@@ -20,13 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="80dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
         android:orientation="vertical">
 
 
         <Button
+
             android:id="@+id/btnAmbulancia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,14 +59,6 @@
             android:textSize="30dp"
             android:onClick="ligarBombeiros"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/button_familia"
-            android:text="Familia"
-            android:textColor="@color/corBranco"
-            android:textSize="30dp" />
 
     </LinearLayout>
 

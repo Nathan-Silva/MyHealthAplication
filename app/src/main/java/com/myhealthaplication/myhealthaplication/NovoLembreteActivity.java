@@ -49,7 +49,7 @@ public class NovoLembreteActivity extends AppCompatActivity {
 
         lembrete = new Lembretes(titulo, conteudo, data, hora);
         boolean cond = new LembreteBancoController(this).add(lembrete);
-        //System.out.println(cond);
+        System.out.println(cond);
         Intent it = new Intent(this, MainActivity.class);
         it.putExtra("titulo", titulo);
         it.putExtra("conteudo", conteudo);
@@ -59,4 +59,5 @@ public class NovoLembreteActivity extends AppCompatActivity {
         setResult(RESULT_OK, it);
         finish();
     }
+
 }

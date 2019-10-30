@@ -55,6 +55,4 @@ public class LembreteAdapter extends BaseAdapter {
         return convertView;
     }
 
-
-
 }
